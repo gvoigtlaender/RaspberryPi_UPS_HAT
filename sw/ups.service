@@ -1,0 +1,14 @@
+[Unit]
+Description=UPS HAT service
+After=network.target
+
+[Service]
+ExecStart=python3 /opt/ups.py
+WorkingDirectory=/opt
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
