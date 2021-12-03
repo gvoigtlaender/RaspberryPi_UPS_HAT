@@ -1,8 +1,5 @@
 #include <Arduino.h>
-
-#define USE_I2C
-#define USE_DS18B20_AVR
-#define HW_REV 1
+#include <config.h>
 
 #if defined USE_I2C
 #include <WireS.h>
@@ -21,6 +18,8 @@ enum _E_I2C_Data {
   eI2C_Data_Battery_Percent,     //! 100% = 100d
   eI2C_Data_Temperature_DegreeC, //! 42°C = 42d
   eI2C_Data_StatusBits,          //! status bits: _E_I2C_StatusBits
+  eI2C_Data_TempLow,             //! lower thr temp (switch fan off)
+  eI2C_Data_TempHigh,            //! higher thr temp (switch fan on)
   eI2C_LAST
 };
 
@@ -35,12 +34,7 @@ enum _E_I2C_StatusBits {
   eI2C_SB_ShutdownForPowerfail = 0x80,
 };
 
-volatile uint8_t i2c_regs[eI2C_LAST] = {
-    0,
-    0,
-    0,
-    0,
-};
+volatile uint8_t i2c_regs[eI2C_LAST] = {0, 0, 0, 0, 34, 38};
 // Tracks the current register pointer position
 volatile byte reg_position = 0;
 // const byte reg_size = sizeof(i2c_regs);
@@ -86,7 +80,16 @@ void receiveEvent(size_t howMany) {
     return;
   }
   while (howMany--) {
-    i2c_regs[reg_position % eI2C_LAST] = TinyWireS.read();
+    uint8_t value = TinyWireS.read();
+    i2c_regs[reg_position % eI2C_LAST] = value;
+    if (reg_position == eI2C_Data_TempLow) {
+      Serial.print(F("TempLow="));
+      Serial.println(value);
+    }
+    if (reg_position == eI2C_Data_TempHigh) {
+      Serial.print(F("TempHigh="));
+      Serial.println(value);
+    }
     reg_position++;
   }
 }
@@ -110,22 +113,6 @@ bool GetI2CStatusBit(_E_I2C_StatusBits bBit) {
   return false;
 #endif
 }
-
-#if HW_REV == 1
-#define STEPUP_VOLTAGE_IN PIN_A2
-#define RPI_POWER_ON_OUT PIN_PA3
-#define FAN_5V_OUT PIN_PA7
-#define BTN PIN_PB0
-#define RPI_IS_ONLINE_IN PIN_PB1
-#define ONE_WIRE PIN_PB2
-#elif HW_REV == 2
-#define RPI_POWER_ON_OUT PIN_PA2
-#define FAN_5V_OUT PIN_PA3
-#define ONE_WIRE PIN_PA7
-#define BTN PIN_PB0
-#define RPI_IS_ONLINE_IN PIN_PB1
-#define STEPUP_VOLTAGE_IN PIN_PB2
-#endif
 
 #if defined USE_DS18B20_AVR
 #include <bitop.h>
@@ -176,6 +163,10 @@ void setup() {
   ds18b20convert(&PORTB, &DDRB, &PINB, BIT(PB2), NULL);
 #endif
   // Whatever other setup routines ?
+  Serial.print(F("TempLow="));
+  Serial.println(i2c_regs[eI2C_Data_TempLow]);
+  Serial.print(F("TempHigh="));
+  Serial.println(i2c_regs[eI2C_Data_TempHigh]);
 
   // switch_rpi(true);
   switch_fan(true);
@@ -213,7 +204,6 @@ void loop_ReadVoltage() {
   SetI2CStatusBit(eI2C_SB_Battery, dVoltage < 4.4);
 }
 
-uint8_t dTemperature = 0;
 void loop_ReadTemperature() {
 #if defined USE_DS18B20_AVR
   // static unsigned long ulMillis = millis();
@@ -221,7 +211,7 @@ void loop_ReadTemperature() {
   int16_t temp;
   ds18b20read(&PORTB, &DDRB, &PINB, BIT(PB2), NULL, &temp);
   ds18b20convert(&PORTB, &DDRB, &PINB, BIT(PB2), NULL);
-  dTemperature = (uint8_t)(temp / 16.0);
+  uint8_t dTemperature = (uint8_t)(temp / 16.0);
 // Serial.println(sensor.getTempC());
 #if defined USE_I2C
   i2c_regs[eI2C_Data_Temperature_DegreeC] = dTemperature;
@@ -269,6 +259,7 @@ void loop_SerialLog() {
   Serial.printf("[O: %d]", GetI2CStatusBit(eI2C_SB_RpiOnIn));
   Serial.printf("[W: %d]", GetI2CStatusBit(eI2C_SB_RpiWait));
   Serial.printf("[F: %d]", GetI2CStatusBit(eI2C_SB_FanOn));
+  Serial.printf("[T: %d]", i2c_regs[eI2C_Data_Temperature_DegreeC]);
 #if defined USE_I2C
   for (uint8_t n = 0; n < eI2C_LAST; n++) {
     Serial.printf("[%02X]", i2c_regs[n]);
@@ -277,13 +268,16 @@ void loop_SerialLog() {
   Serial.println();
 }
 
-#define dTempOn 38.0
-#define dTempOff 34.0
+//#define dTempOn 38.0
+//#define dTempOff 34.0
 void loop_FanControl() {
-  if (dTemperature >= dTempOn) {
+  if (millis() < 20000)
+    return;
+  if (i2c_regs[eI2C_Data_Temperature_DegreeC] >= i2c_regs[eI2C_Data_TempHigh]) {
     if (!GetI2CStatusBit(eI2C_SB_FanOn))
       switch_fan(true);
-  } else if (dTemperature <= dTempOff) {
+  } else if (i2c_regs[eI2C_Data_Temperature_DegreeC] <=
+             i2c_regs[eI2C_Data_TempLow]) {
     if (GetI2CStatusBit(eI2C_SB_FanOn))
       switch_fan(false);
   }
@@ -328,6 +322,7 @@ void loop_RpiControl() {
     }
     // Serial.printf("loop_RpiControl, state=eRS_Start\n");
     Serial.printf(F("l_Rc, s=W4R1\n"));
+    switch_rpi(true);
     eRpiState = eRS_WaitForRpiOn;
     break;
 
