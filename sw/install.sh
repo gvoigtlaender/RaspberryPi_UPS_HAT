@@ -2,5 +2,5 @@
 
 cp ups.service /etc/systemd/system/
 cp ups.py /opt/
-systemctrl enable ups.service
-systemctrll start ups.service
+systemctl enable ups.service
+systemctl start ups.service
