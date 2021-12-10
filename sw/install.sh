@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd "$(dirname "$0")"
+
 echo copying ups.service > /etc/systemd/system/
 cp ups.service /etc/systemd/system/ups.service
 
