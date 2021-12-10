@@ -17,3 +17,6 @@ systemctl enable ups.service
 
 echo "starting ups.service"
 systemctl start ups.service
+
+echo "checking service status"
+systemctl service ups.service
