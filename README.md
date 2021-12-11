@@ -6,6 +6,7 @@
 * small footprint to integrate into given RaspberrryPi case (LABISTS Starter Kit)
 * integrated fan control (temperature based)
 * onboard programmer interface (ISP)
+* I2C based RPI ups service for Battery supervision, logging and shutdown (systemd, python3, smbus)
 
 ## Used items:
 * Attiny 841 CPU
