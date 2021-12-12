@@ -15,7 +15,7 @@ fp-info-cache# Netlist files (exported from Eeschema)
 
 12V_Pwm_Switch*
 
-gerber/*
+# gerber/*
 *_2021*
 _*
 *.STEP
