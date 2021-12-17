@@ -1,16 +1,39 @@
-Comment,Designator,Footprint,LCSC part number
-470pF,C1,0805,C1743
-1uF,"C2,C8,C9",0805,C28323
-22uF,"C4,C3,C6,C5",0805,C45783
-100nF,"C7,C10,C11",0805,C49678
-1N5819,"D1,D5,D2","SMA,DO-214AC",C2480
-S8050,"Q2,Q1",SOT-23-3,C2146
-AO3401A,"Q3,Q4,Q5",SOT-23-3L,C15127
-22k,R1,0805,C17560
-15k,R11,0805,C17475
-1.5k,R12,0805,C4310
-33k,R2,0805,C17633
-10k,"R4,R5,R13,R14",0805,C17414
-100k,"R6,R7,R9",0805,C17407
-5.1k,"R8,R3",0805,C27834
-110k,R10,0805,C17422
+Comment,Designator,Footprint,LCSC, MANUFACTURER, MAXIMUM_PACKAGE_HEIGHT, PARTREV, STANDARD
+"470pF","C1","Capacitor_SMD:C_0805_2012Metric",""
+"100uF","C12","Capacitor_SMD:CP_Elec_6.3x5.9",""
+"1uF","C2,C8,C9","Capacitor_SMD:C_0805_2012Metric",""
+"22uF","C4,C3,C6,C5","Capacitor_SMD:C_0805_2012Metric",""
+"100nF","C7,C10,C11","Capacitor_SMD:C_0805_2012Metric",""
+"1N5819","D3,D1,D5,D2","Diode_SMD:D_SMA",""
+"LED","D4","Diode_SMD:D_0805_2012Metric",""
+"Fuse","F1","Fuse:Fuse_1812_4532Metric",""
+"ISP","J1","Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical",""
+"Raspberry_Pi_2_3","J2","Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical",""
+"BAT","J3","kicad_parts:JST-PH-2-SMT-RA",""
+"COM","J4","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal",""
+"FAN","J5","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal",""
+"USB4125-GF-A_REVA","J6","kicad_parts:GCT_USB4125-GF-A_REVA","","GCT","3.16 mm","Rev A","Manufacturer Recommendations"
+"BTN","J7","Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal",""
+"FAN V","JP1","Jumper:SolderJumper-3_P1.3mm_Open_RoundedPad1.0x1.5mm",""
+"6.8uH","L1","Inductor_SMD:L_6.3x6.3_H3",""
+"BC846","Q2,Q1","Package_TO_SOT_SMD:SOT-23",""
+"AO3401A","Q3,Q4,Q5","Package_TO_SOT_SMD:SOT-23",""
+"22k","R1","Resistor_SMD:R_0805_2012Metric",""
+"14k","R11","Resistor_SMD:R_0805_2012Metric",""
+"1.5k","R12","Resistor_SMD:R_0805_2012Metric",""
+"4k7","R15","Resistor_SMD:R_0805_2012Metric",""
+"33k","R2","Resistor_SMD:R_0805_2012Metric",""
+"10k","R4,R5,R13,R14","Resistor_SMD:R_0805_2012Metric",""
+"100k","R6,R7,R10,R9","Resistor_SMD:R_0805_2012Metric",""
+"5.1k","R8,R3","Resistor_SMD:R_0805_2012Metric",""
+"BTN","SW1","kicad_parts:SW_SPST_SKQG_WithoutStem",""
+"RST","SW2","kicad_parts:SW_SPST_SKQG_WithoutStem",""
+"SIN","TP1","TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm",""
+"SOUT","TP2","TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm",""
+"GND","TP3","TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm",""
+"3V3","TP4","TestPoint:TestPoint_THTPad_D1.0mm_Drill0.5mm",""
+"MIC5219-3.3YM5","U1","Package_TO_SOT_SMD:SOT-23-5_HandSoldering",""
+"ATtiny841-SSU","U2","Package_SO:SOIC-14_3.9x8.7mm_P1.27mm",""
+"DS18B20","U3","Package_TO_SOT_THT:TO-92_Inline",""
+"MT3608","U4","Package_TO_SOT_SMD:SOT-23-6_Handsoldering",""
+"LTC4054ES5-4.2","U5","Package_TO_SOT_SMD:SOT-23-5_HandSoldering",""
