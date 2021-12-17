@@ -145,9 +145,9 @@ Wire Wire Line
 	12150 6800 12100 6800
 Text GLabel 7000 2700 0    50   Input ~ 0
 RPI_POWER_ON_OUT
-Text GLabel 18900 2450 2    50   Input ~ 0
+Text GLabel 7800 4850 2    50   Input ~ 0
 I2C_SCL
-Text GLabel 18900 2350 2    50   Input ~ 0
+Text GLabel 7800 4750 2    50   Input ~ 0
 I2C_SDA
 $Comp
 L Connector_Generic:Conn_01x02 J4
@@ -250,84 +250,84 @@ Wire Wire Line
 $Comp
 L Connector:Raspberry_Pi_2_3 J2
 U 1 1 608D3AAB
-P 18000 2950
-F 0 "J2" H 18000 4431 50  0000 C CNN
-F 1 "Raspberry_Pi_2_3" H 18000 4340 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical" H 18000 2950 50  0001 C CNN
-F 3 "https://www.raspberrypi.org/documentation/hardware/raspberrypi/schematics/rpi_SCH_3bplus_1p0_reduced.pdf" H 18000 2950 50  0001 C CNN
-	1    18000 2950
+P 6900 5350
+F 0 "J2" H 6900 6831 50  0000 C CNN
+F 1 "Raspberry_Pi_2_3" H 6900 6740 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical" H 6900 5350 50  0001 C CNN
+F 3 "https://www.raspberrypi.org/documentation/hardware/raspberrypi/schematics/rpi_SCH_3bplus_1p0_reduced.pdf" H 6900 5350 50  0001 C CNN
+	1    6900 5350
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	17900 1350 17900 1650
+	6800 3750 6800 4050
 Wire Wire Line
-	17800 1350 17900 1350
+	6700 3750 6800 3750
 Wire Wire Line
-	17800 1350 17800 1650
+	6700 3750 6700 4050
 Wire Wire Line
-	18900 2450 18800 2450
+	7800 4850 7700 4850
 Wire Wire Line
-	18800 2350 18900 2350
+	7700 4750 7800 4750
 $Comp
 L power:GND #PWR011
 U 1 1 609486C7
-P 18450 4250
-F 0 "#PWR011" H 18450 4000 50  0001 C CNN
-F 1 "GND" H 18455 4077 50  0000 C CNN
-F 2 "" H 18450 4250 50  0001 C CNN
-F 3 "" H 18450 4250 50  0001 C CNN
-	1    18450 4250
+P 7350 6650
+F 0 "#PWR011" H 7350 6400 50  0001 C CNN
+F 1 "GND" H 7355 6477 50  0000 C CNN
+F 2 "" H 7350 6650 50  0001 C CNN
+F 3 "" H 7350 6650 50  0001 C CNN
+	1    7350 6650
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	18450 4250 18300 4250
-Connection ~ 17700 4250
+	7350 6650 7200 6650
+Connection ~ 6600 6650
 Wire Wire Line
-	17700 4250 17600 4250
-Connection ~ 17800 4250
+	6600 6650 6500 6650
+Connection ~ 6700 6650
 Wire Wire Line
-	17800 4250 17700 4250
-Connection ~ 17900 4250
+	6700 6650 6600 6650
+Connection ~ 6800 6650
 Wire Wire Line
-	17900 4250 17800 4250
-Connection ~ 18000 4250
+	6800 6650 6700 6650
+Connection ~ 6900 6650
 Wire Wire Line
-	18000 4250 17900 4250
-Connection ~ 18100 4250
+	6900 6650 6800 6650
+Connection ~ 7000 6650
 Wire Wire Line
-	18100 4250 18000 4250
-Connection ~ 18200 4250
+	7000 6650 6900 6650
+Connection ~ 7100 6650
 Wire Wire Line
-	18200 4250 18100 4250
-Connection ~ 18300 4250
+	7100 6650 7000 6650
+Connection ~ 7200 6650
 Wire Wire Line
-	18300 4250 18200 4250
-NoConn ~ 17200 2350
-NoConn ~ 17200 2450
-NoConn ~ 17200 2550
-NoConn ~ 17200 2750
-NoConn ~ 17200 2850
-NoConn ~ 17200 2950
-NoConn ~ 17200 3150
-NoConn ~ 17200 3250
-NoConn ~ 17200 3350
-NoConn ~ 17200 3450
-NoConn ~ 17200 3550
-NoConn ~ 17200 3650
-NoConn ~ 18800 3750
-NoConn ~ 18800 3650
-NoConn ~ 18800 3450
-NoConn ~ 18800 3350
-NoConn ~ 18800 3250
-NoConn ~ 18800 3150
-NoConn ~ 18800 3050
-NoConn ~ 18800 2850
-NoConn ~ 18800 2750
-NoConn ~ 18800 2650
-NoConn ~ 18800 2050
-NoConn ~ 18800 2150
-NoConn ~ 18100 1650
-NoConn ~ 18200 1650
+	7200 6650 7100 6650
+NoConn ~ 6100 4750
+NoConn ~ 6100 4850
+NoConn ~ 6100 4950
+NoConn ~ 6100 5150
+NoConn ~ 6100 5250
+NoConn ~ 6100 5350
+NoConn ~ 6100 5550
+NoConn ~ 6100 5650
+NoConn ~ 6100 5750
+NoConn ~ 6100 5850
+NoConn ~ 6100 5950
+NoConn ~ 6100 6050
+NoConn ~ 7700 6150
+NoConn ~ 7700 6050
+NoConn ~ 7700 5850
+NoConn ~ 7700 5750
+NoConn ~ 7700 5650
+NoConn ~ 7700 5550
+NoConn ~ 7700 5450
+NoConn ~ 7700 5250
+NoConn ~ 7700 5150
+NoConn ~ 7700 5050
+NoConn ~ 7700 4450
+NoConn ~ 7700 4550
+NoConn ~ 7000 4050
+NoConn ~ 7100 4050
 $Comp
 L power:PWR_FLAG #FLG02
 U 1 1 60995420
@@ -768,10 +768,10 @@ Text GLabel 2950 5350 2    50   Input ~ 0
 RPI_IS_ONLINE_IN
 Wire Wire Line
 	2650 5350 2950 5350
-Text GLabel 17050 2050 0    50   Input ~ 0
+Text GLabel 5950 4450 0    50   Input ~ 0
 RPI_IS_ONLINE_IN
 Wire Wire Line
-	17050 2050 17200 2050
+	5950 4450 6100 4450
 Text Label 6650 1300 2    50   ~ 0
 V_BAT+
 Text Label 12600 850  0    50   ~ 0
@@ -784,7 +784,7 @@ Text Label 14750 6050 2    50   ~ 0
 FAN+
 Text Label 8700 3050 0    50   ~ 0
 RPI_5V
-Text Label 17900 1350 0    50   ~ 0
+Text Label 6800 3750 0    50   ~ 0
 RPI_5V
 $Comp
 L power:GND #PWR017
@@ -1528,10 +1528,10 @@ F 3 "https://assets.nexperia.com/documents/data-sheet/BC846_SER.pdf" H 10600 270
 	1    10600 2700
 	1    0    0    -1  
 $EndComp
-Text GLabel 17050 2150 0    50   Input ~ 0
+Text GLabel 5950 4550 0    50   Input ~ 0
 TX
 Wire Wire Line
-	17050 2150 17200 2150
+	5950 4550 6100 4550
 $Comp
 L Graphic:Logo_Open_Hardware_Large #LOGO1
 U 1 1 61B2E996
