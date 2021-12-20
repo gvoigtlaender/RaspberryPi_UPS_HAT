@@ -22,3 +22,8 @@
 ## PCB:
 ![top view](hw/top.png)
 ![back view](hw/bottom.png)
+
+![top view with PRi](hw/top_RPi.png)
+![front view with PRi](hw/front_RPi.png)
+![side view with PRi](hw/side_RPi.png)
+![iso view with PRi](hw/iso_RPi.png)
