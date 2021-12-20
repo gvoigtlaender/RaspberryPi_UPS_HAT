@@ -7,7 +7,7 @@
       "Application": "Pcbnew",
       "Version":     "5.1.9+dfsg1-1"
     },
-    "CreationDate":  "2021-12-17T12:31:51+01:00"
+    "CreationDate":  "2021-12-20T12:13:36+01:00"
   },
   "GeneralSpecs":
   {
@@ -33,8 +33,8 @@
       "PadToTrack":  0.200,
       "TrackToTrack":  0.200,
       "MinLineWidth":  0.200,
-      "TrackToRegion":  0.508,
-      "RegionToRegion":  0.508
+      "TrackToRegion":  0.200,
+      "RegionToRegion":  0.200
     }
   ],
   "FilesAttributes":

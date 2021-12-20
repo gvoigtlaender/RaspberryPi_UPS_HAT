@@ -1,0 +1,15 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP LTC4054XES5-4.2
+D Constant-current/constant-voltage linear charger for single cell lithium-ion batteries no Trickle Charge, 4.5V to 6.5V VDD, -40 to +85 degree Celcius, TSOT-23-5
+K Constant-current constant-voltage linear charger single cell lithium-ion battery
+F https://www.analog.com/media/en/technical-documentation/data-sheets/405442xf.pdf
+$ENDCMP
+#
+$CMP TP4054
+D Constant-current/constant-voltage linear charger for single cell lithium-ion batteries with 2.9V Trickle Charge, 4.5V to 6.5V VDD, -40 to +85 degree Celcius, TSOT-23-5
+K Constant-current constant-voltage linear charger single cell lithium-ion battery
+F https://www.analog.com/media/en/technical-documentation/data-sheets/405442xf.pdf
+$ENDCMP
+#
+#End Doc Library

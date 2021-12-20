@@ -1,4 +1,4 @@
-18543584909953775
+18546844519685573
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -72582,6 +72582,20 @@ Shielding Cabinet
 0
 48
 1
+RaspberryPi_UPS_HAT
+PinSocket_2x20_P2.54mm_Vertical_RPI
+Through hole straight socket strip, 2x20, 2.54mm pitch, double cols (from Kicad 4.0.7), script generated
+Through hole socket strip THT 2x20 2.54mm double row
+0
+40
+40
+RaspberryPi_UPS_HAT
+TP4056_BoostModule
+
+
+0
+6
+6
 Relay_SMD
 Relay_DPDT_AXICOM_IMSeries_JLeg
 http://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Specification+Or+Standard%7F108-98001%7FW5%7Fpdf%7FEnglish%7FENG_SS_108-98001_W5.pdf

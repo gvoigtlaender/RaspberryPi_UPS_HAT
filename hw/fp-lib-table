@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name kicad_parts)(type KiCad)(uri /home/georgv/github/kicad_parts/kicad_parts.pretty)(options "")(descr ""))
+  (lib (name RaspberryPi_UPS_HAT)(type KiCad)(uri ${KIPRJMOD}/RaspberryPi_UPS_HAT.pretty)(options "")(descr ""))
 )

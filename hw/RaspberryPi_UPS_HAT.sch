@@ -150,12 +150,12 @@ I2C_SCL
 Text GLabel 7800 4750 2    50   Input ~ 0
 I2C_SDA
 $Comp
-L Connector_Generic:Conn_01x02 J4
+L Connector_Generic:Conn_01x04 J4
 U 1 1 608CE15F
 P 15250 7500
 F 0 "J4" H 15330 7492 50  0000 L CNN
 F 1 "COM" H 15330 7401 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal" H 15250 7500 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Horizontal" H 15250 7500 50  0001 C CNN
 F 3 "~" H 15250 7500 50  0001 C CNN
 	1    15250 7500
 	1    0    0    -1  
@@ -163,20 +163,16 @@ $EndComp
 $Comp
 L power:GND #PWR016
 U 1 1 608CF136
-P 14900 7600
-F 0 "#PWR016" H 14900 7350 50  0001 C CNN
-F 1 "GND" H 14905 7427 50  0000 C CNN
-F 2 "" H 14900 7600 50  0001 C CNN
-F 3 "" H 14900 7600 50  0001 C CNN
-	1    14900 7600
+P 14850 7500
+F 0 "#PWR016" H 14850 7250 50  0001 C CNN
+F 1 "GND" H 14750 7450 50  0000 C CNN
+F 2 "" H 14850 7500 50  0001 C CNN
+F 3 "" H 14850 7500 50  0001 C CNN
+	1    14850 7500
 	1    0    0    -1  
 $EndComp
-Text GLabel 14900 7500 0    50   Input ~ 0
+Text GLabel 14850 7400 0    50   Input ~ 0
 TX
-Wire Wire Line
-	15050 7500 14900 7500
-Wire Wire Line
-	15050 7600 14900 7600
 $Comp
 L Device:R R1
 U 1 1 608E291B
@@ -253,7 +249,7 @@ U 1 1 608D3AAB
 P 6900 5350
 F 0 "J2" H 6900 6831 50  0000 C CNN
 F 1 "Raspberry_Pi_2_3" H 6900 6740 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical" H 6900 5350 50  0001 C CNN
+F 2 "RaspberryPi_UPS_HAT:PinSocket_2x20_P2.54mm_Vertical_RPI" H 6900 5350 50  0001 C CNN
 F 3 "https://www.raspberrypi.org/documentation/hardware/raspberrypi/schematics/rpi_SCH_3bplus_1p0_reduced.pdf" H 6900 5350 50  0001 C CNN
 	1    6900 5350
 	1    0    0    -1  
@@ -444,14 +440,7 @@ F 3 "~" H 2550 2800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1800 2650 1650 2650
-Wire Wire Line
-	1650 2650 1650 2550
-Connection ~ 1650 2550
-Wire Wire Line
-	1650 2550 1800 2550
-Wire Wire Line
-	2400 2650 2550 2650
+	2550 2550 2550 2650
 $Comp
 L power:+3V3 #PWR02
 U 1 1 60ABFC9E
@@ -585,18 +574,6 @@ F 3 "" H 11800 6450 50  0001 C CNN
 	1    11800 6450
 	1    0    0    -1  
 $EndComp
-$Comp
-L Regulator_Linear:MIC5219-3.3YM5 U1
-U 1 1 60C3218B
-P 2100 2650
-F 0 "U1" H 2100 2992 50  0000 C CNN
-F 1 "MIC5219-3.3YM5" H 2100 2901 50  0000 C CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-5_HandSoldering" H 2100 2975 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/MIC5219-500mA-Peak-Output-LDO-Regulator-DS20006021A.pdf" H 2100 2650 50  0001 C CNN
-	1    2100 2650
-	1    0    0    -1  
-$EndComp
-Connection ~ 2100 2950
 Text Label 6650 1000 2    50   ~ 0
 5V_IN
 $Comp
@@ -1038,17 +1015,6 @@ Wire Wire Line
 	4450 900  3500 900 
 Wire Wire Line
 	4450 1650 4450 1600
-$Comp
-L Battery_Management:LTC4054ES5-4.2 U5
-U 1 1 60D69DA3
-P 4450 1200
-F 0 "U5" H 4400 1150 50  0000 L CNN
-F 1 "LTC4054ES5-4.2" H 4500 800 50  0000 L CNN
-F 2 "Package_TO_SOT_SMD:SOT-23-5_HandSoldering" H 4450 700 50  0001 C CNN
-F 3 "https://www.analog.com/media/en/technical-documentation/data-sheets/405442xf.pdf" H 4450 1100 50  0001 C CNN
-	1    4450 1200
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4000 1600 4000 1650
 Wire Wire Line
@@ -1058,7 +1024,7 @@ L Device:R R12
 U 1 1 60D70410
 P 4000 1450
 F 0 "R12" H 3800 1500 50  0000 L CNN
-F 1 "1.5k" H 3700 1400 50  0000 L CNN
+F 1 "10k" H 3700 1400 50  0000 L CNN
 F 2 "Resistor_SMD:R_0805_2012Metric" V 3930 1450 50  0001 C CNN
 F 3 "~" H 4000 1450 50  0001 C CNN
 	1    4000 1450
@@ -1077,7 +1043,7 @@ F 3 "~" H 5700 1550 50  0001 C CNN
 $EndComp
 Text Label 5700 1800 2    50   ~ 0
 CHR_STATE
-Text Label 5700 800  2    50   ~ 0
+Text Label 5050 1950 2    50   ~ 0
 5V_IN
 $Comp
 L Device:LED D4
@@ -1230,8 +1196,6 @@ Text Label 11150 1200 0    50   ~ 0
 SW
 Text Label 1100 2550 2    50   ~ 0
 STEPUP_IN
-Wire Wire Line
-	1100 2550 1650 2550
 $Comp
 L Connector:TestPoint TP4
 U 1 1 60B72C54
@@ -1533,17 +1497,6 @@ TX
 Wire Wire Line
 	5950 4550 6100 4550
 $Comp
-L Graphic:Logo_Open_Hardware_Large #LOGO1
-U 1 1 61B2E996
-P 8700 10550
-F 0 "#LOGO1" H 8700 11050 50  0001 C CNN
-F 1 "Logo_Open_Hardware_Large" H 8700 10150 50  0001 C CNN
-F 2 "" H 8700 10550 50  0001 C CNN
-F 3 "~" H 8700 10550 50  0001 C CNN
-	1    8700 10550
-	1    0    0    -1  
-$EndComp
-$Comp
 L Jumper:SolderJumper_3_Open JP1
 U 1 1 61B304DD
 P 12300 2600
@@ -1703,32 +1656,49 @@ F 3 "~" H 9300 10850 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9300 10850 9300 11050
-$Comp
-L Connector_Generic:Conn_01x02 J7
-U 1 1 61B850AD
-P 15250 8250
-F 0 "J7" H 15330 8242 50  0000 L CNN
-F 1 "BTN" H 15330 8151 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Horizontal" H 15250 8250 50  0001 C CNN
-F 3 "~" H 15250 8250 50  0001 C CNN
-	1    15250 8250
-	1    0    0    -1  
-$EndComp
-$Comp
-L power:GND #PWR035
-U 1 1 61B85901
-P 14900 8350
-F 0 "#PWR035" H 14900 8100 50  0001 C CNN
-F 1 "GND" H 14905 8177 50  0000 C CNN
-F 2 "" H 14900 8350 50  0001 C CNN
-F 3 "" H 14900 8350 50  0001 C CNN
-	1    14900 8350
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	15050 8250 14900 8250
-Wire Wire Line
-	15050 8350 14900 8350
-Text GLabel 14900 8250 0    50   Input ~ 0
+Text GLabel 14850 7700 0    50   Input ~ 0
 BTN
+$Comp
+L TP4054:TP4054 U5
+U 1 1 61BD28E3
+P 4450 1200
+F 0 "U5" H 4950 1150 50  0000 L CNN
+F 1 "TP4054" H 4900 1050 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23-5" H 4450 700 50  0001 C CNN
+F 3 "https://www.analog.com/media/en/technical-documentation/data-sheets/405442xf.pdf" H 4450 1100 50  0001 C CNN
+	1    4450 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Regulator_Linear:AMS1117-3.3 U1
+U 1 1 61BD899A
+P 2100 2550
+F 0 "U1" H 2100 2792 50  0000 C CNN
+F 1 "AMS1117-3.3" H 2100 2701 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 2100 2750 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 2200 2300 50  0001 C CNN
+	1    2100 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1100 2550 1800 2550
+Connection ~ 2550 2550
+Wire Wire Line
+	2100 2850 2100 2950
+Connection ~ 2100 2950
+Text Label 5250 1950 0    50   ~ 0
+5V_IN_LED
+Text Label 5700 800  2    50   ~ 0
+5V_IN_LED
+Wire Wire Line
+	5050 1950 5250 1950
+Wire Wire Line
+	14850 7700 15050 7700
+Wire Wire Line
+	14850 7500 15050 7500
+Connection ~ 15050 7500
+Wire Wire Line
+	15050 7500 15050 7600
+Wire Wire Line
+	14850 7400 15050 7400
 $EndSCHEMATC
